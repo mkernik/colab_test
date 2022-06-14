@@ -23,24 +23,24 @@ try:
 except:
     mode= zipfile.ZIP_STORED
 
-#def unzipDir(inputDir):
-#    for root, dirs, files in os.walk(inputDir):
-#        for f in files:
-#            if f.endswith('.zip'):
-#                inFile = os.path.join(root, f)
-#                print 'Working on', inFile
-#                outDir = os.path.join(root, f[:-4])
-#                if not os.path.isdir(outDir):
-#                    os.mkdir(outDir)
-#                    print 'Created',outDir
-#                else:
-#                    continue
-#
-#                with zipfile.ZipFile(inFile,'r') as z:
-#                    z.extractall(outDir)
-#                print f,'was successful.'
-#
-#    print 'Done.'
+def unzipDir(inputDir):
+    for root, dirs, files in os.walk(inputDir):
+        for f in files:
+            if f.endswith('.zip'):
+                inFile = os.path.join(root, f)
+                print 'Working on', inFile
+                outDir = os.path.join(root, f[:-4])
+                if not os.path.isdir(outDir):
+                    os.mkdir(outDir)
+                    print 'Created',outDir
+                else:
+                    continue
+
+                with zipfile.ZipFile(inFile,'r') as z:
+                    z.extractall(outDir)
+                print f,'was successful.'
+
+    print ('Done.')
  
 #inputDir = r'C:\Users\kerni016\Documents\DRUM\200508\LargeShapefileTest\ALL_REGIONS_SHP_tr_2017_0700-0859'
 inputDir = r'C:\MetadataWranglers\umn-thesis-metadata\test-batch'
